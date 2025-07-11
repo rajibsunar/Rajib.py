@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Resume - Rajib Sunar</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: clamp(20px, 5vw, 40px);
+      background-color: #000;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      text-align: center;
+      margin-bottom: 30px;
+      background: linear-gradient(270deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 10s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .resume-container {
+      max-width: 800px;
+      width: 100%;
+      background: #111;
+      border-radius: 12px;
+      padding: clamp(15px, 4vw, 30px);
+      box-shadow: 0 0 15px #0ff88;
+      text-align: center;
+    }
+
+    .resume-image img {
+      width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+      filter: brightness(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .resume-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px #0ff;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #0ff55;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background-color: #ff00ff;
+      color: #fff;
+      box-shadow: 0 0 30px #ff00ff;
+    }
+
+    .hint {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #0ff;
+      opacity: 0.85;
+    }
+
+    /* Extra responsive tweaks */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .download-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+
+      .resume-container {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .download-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Resume</h1>
+
+  <div class="resume-container">
+    <div class="resume-image">
+      <img src="img/38.jpg" alt="My Resume" />
+    </div>
+
+    <!-- Download Button -->
+    <a href="img/38.jpg" download="Rajib_Sunar_CV.jpg" class="download-btn" onclick="showHint()">Download Resume Image (JPG)</a>
+
+    <div class="hint" id="hint" style="display:none;">✅ Your download is starting...</div>
+  </div>
+
+  <script>
+    function showHint() {
+      const hint = document.getElementById('hint');
+      hint.style.display = 'block';
+      setTimeout(() => {
+        hint.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>

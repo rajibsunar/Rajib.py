@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Skills</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #111;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .skills-section {
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    .section-title span {
+      color: #00ffc8;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .skill-box {
+      background: #1c1c1c;
+      border: 2px solid #00ffc8;
+      padding: 25px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+      animation: boxFloat 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+    }
+
+    .typing-title {
+      color: #00ffc8;
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #00ffc8;
+      width: 0;
+      animation: typing 2s steps(22) forwards, blink 0.7s infinite step-end alternate;
+      margin-bottom: 15px;
+    }
+
+    .desc {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0;
+    }
+
+    .fade-in .desc1 {
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .slide-in .desc2 {
+      animation: slideIn 1.2s ease forwards;
+    }
+
+    .zoom-in .desc3 {
+      animation: zoomIn 1.2s ease forwards;
+    }
+
+    .bounce-in .desc4 {
+      animation: bounceIn 1.2s ease forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes boxFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .typing-title {
+        font-size: 20px;
+      }
+
+      .desc {
+        font-size: 15px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .back-home-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #0ef, #00bbff);
+  color: #16213e;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 35px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 238, 255, 0.5);
+  margin-top: 25px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background: linear-gradient(135deg, #00bbff, #0ef);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <section class="skills-section">
+    <h1 class="section-title">My <span>Skills</span></h1>
+    <div class="skills-container">
+      <div class="skill-box fade-in">
+        <h2 class="typing-title">Graphic Designer</h2>
+        <p class="desc desc1">Creative in making designs that attract users and speak visually. Expert in Photoshop and Illustrator.</p>
+      </div>
+      <div class="skill-box slide-in">
+        <h2 class="typing-title">Photography</h2>
+        <p class="desc desc2">Passionate about capturing moments that matter. Skilled in editing and composition.</p>
+      </div>
+      <div class="skill-box zoom-in">
+        <h2 class="typing-title">Web Designing</h2>
+        <p class="desc desc3">Building interactive and responsive websites with modern design and great UX.</p>
+      </div>
+      <div class="skill-box bounce-in">
+        <h2 class="typing-title">Content Creation</h2>
+        <p class="desc desc4">Expert in making creative video and blog content that engages audience effectively.</p>
+      </div>
+    </div>
+    <footer style="margin-top: 40px; text-align: center;">
+    <a href="index.html" class="back-home-btn">← Back to Home</a>
+  </footer>
+
+  </section>
+</body>
+</html>

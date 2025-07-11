@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎥 My YouTube Video Gallery</title>
+  <style>
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1.gallery-heading {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 videos per row */
+  gap: 25px;
+}
+
+@media (max-width: 1000px) {
+  .video-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.video-box {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.video-box:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.video-content {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  display: block;
+}
+
+iframe.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px 15px 0 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.video-box:hover iframe.video-iframe {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-box:hover .thumbnail {
+  opacity: 0;
+}
+
+.video-title {
+  padding: 15px;
+  background: #333;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.6rem;
+  border-radius: 0 0 15px 15px;
+  letter-spacing: 0.5px;
+}
+
+.close-box {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.close-box button {
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.close-box button:hover {
+  background-color: #b02a37;
+}
+  </style>
+</head>
+<body>
+  <h1 class="gallery-heading">🎥 My YouTube Video Gallery</h1>
+  <div class="video-gallery">
+    <!-- Repeat this for each video -->
+    <div class="video-box" onclick="openVideo('5YRDF463EXQ')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/5YRDF463EXQ/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Quiz App using Google Forms</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('gefDnFM0WD0')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/gefDnFM0WD0/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">How to Upload a project on GitHub |GitHub Tutorial -How to use GitHub</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('wk_nxmjJFuc')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/wk_nxmjJFuc/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Create Nepali Calendar 2082 App Using AIns</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('bgGnzOnDTCk')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/bgGnzOnDTCk/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Google Classroom प्रयोग गर्ने तरिका - Online Class Free</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('r8YU_GorYig')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/r8YU_GorYig/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Graphic Design in Photoshop</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('cXs9exn1NqY')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/cXs9exn1NqY/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Photoshop Wedding Banner Design Tutorial</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('cl0T0WSfBEo')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/cl0T0WSfBEo/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Nepali Calendar App with AI</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('l0FOLcr7yCk')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/l0FOLcr7yCk/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Coffee Creative Social Media Post Design | Photoshop Tutorial 2025</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('0WSiEjf6gQw')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/0WSiEjf6gQw/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Vue.js Tutorial for Beginners</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('i_OZvY2AC7w')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/i_OZvY2AC7w/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">Create a website by Using WordPress. Install XAMPP and use it</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('8O8058sufIY')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/8O8058sufIY/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">How to make School Admission Form Using Google Forms Free</div>
+    </div>
+
+    <div class="video-box" onclick="openVideo('bxrJ1CE5un4')">
+      <div class="video-content">
+        <img class="thumbnail" src="https://img.youtube.com/vi/bxrJ1CE5un4/hqdefault.jpg" alt="Video Thumbnail" />
+      </div>
+      <div class="video-title">AI Basic Course with Certificate</div>
+    </div>
+  </div>
+
+  <div class="close-box">
+    <button onclick="window.location.href='index.html'">Close</button>
+  </div>
+
+  <script>
+    function openVideo(videoId) {
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    }
+  </script>
+</body>
+</html>

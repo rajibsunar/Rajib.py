@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Me - Rajib Sunar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+body {
+  margin: 0;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 4vw, 20px);
+  background-color: #000;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.animated-text {
+  background: linear-gradient(270deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1.main-title {
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+p.intro {
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.whoami {
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 0.1em;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* Profile Section - always horizontal */
+.profile-section {
+  display: flex;
+  flex-wrap: nowrap; /* prevent vertical stacking */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+
+.profile-photo {
+  flex: 0 0 30%;
+  max-width: 30%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 25px #0ff;
+  transition: transform 0.3s ease;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.9);
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #ff00ff;
+}
+
+.profile-description {
+  flex: 1;
+  padding-left: 20px;
+  color: #ccc;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.profile-description p {
+  margin-bottom: 15px;
+}
+
+/* Tree Section */
+.tree {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Boxes */
+.branch {
+  background: #111;
+  border-left: 6px solid #0ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff88;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.9s forwards ease-out;
+  animation-delay: var(--delay);
+  width: clamp(240px, 30%, 300px);
+}
+
+.branch h2 {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+  animation: glowPulse 3s infinite ease-in-out alternate;
+}
+
+.branch p {
+  font-weight: 300;
+  color: #ccc;
+  animation: colorPulse 6s infinite ease-in-out alternate;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;}
+  100% {text-shadow: 0 0 15px #0ff, 0 0 40px #0ff;}
+}
+
+@keyframes colorPulse {
+  0% {color: #ccc;}
+  50% {color: #0ff;}
+  100% {color: #ccc;}
+}
+
+.branch:nth-child(1) { --delay: 0.2s; }
+.branch:nth-child(2) { --delay: 0.4s; }
+.branch:nth-child(3) { --delay: 0.6s; }
+.branch:nth-child(4) { --delay: 0.8s; }
+.branch:nth-child(5) { --delay: 1s; }
+.branch:nth-child(6) { --delay: 1.2s; }
+
+/* RESPONSIVE STYLES */
+
+/* Mobile image & text: keep horizontal, image smaller */
+@media (max-width: 768px) {
+  .profile-photo {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .profile-description {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    padding-left: 10px;
+  }
+
+  /* Boxes: 2 per row with left-right alignment */
+  .tree {
+    justify-content: flex-start;
+  }
+
+  .branch {
+    width: 45%;
+  }
+
+  /* Odd boxes aligned left */
+  .branch:nth-child(odd) {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  /* Even boxes aligned right */
+  .branch:nth-child(even) {
+    margin-left: auto;
+    text-align: right;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 480px) {
+  .profile-photo {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+
+  .profile-description {
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+    padding-left: 8px;
+  }
+
+  /* Boxes: 2 per row */
+  .branch {
+    width: 48%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1 class="main-title animated-text">About Me</h1>
+
+  <p class="intro">
+    I am Rajib Sunar — a dynamic digital creator merging technology and creativity.
+    I specialize in web development, graphic design, and content creation on YouTube.
+    My mission is to educate, innovate, and inspire the next wave of creators.
+  </p>
+
+  <div class="whoami">Who I Am: Developer, Designer & Youtuber</div>
+
+  <div class="profile-section">
+    <div class="profile-photo">
+      <img src="img/37.jpg" />
+    </div>
+    <div class="profile-description">
+      <p>
+        I build sleek, responsive websites focused on user experience and modern design.
+        As a graphic designer, I bring ideas to life with striking visuals that communicate clearly.
+      </p>
+      <p>
+        On my YouTube channel <strong>Technical Tube</strong>, I share tech tutorials and reviews that empower learners globally.
+        Currently, I am mastering AI tools and cutting-edge web tech to stay at the forefront of innovation.
+      </p>
+      <p>
+        My career is a blend of creativity, technology, and education — driven by passion and growth.
+      </p>
+    </div>
+  </div>
+
+  <div class="tree">
+    <div class="branch">
+      <h2>Web Development</h2>
+      <p>Crafting responsive, interactive websites using modern HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="branch">
+      <h2>Graphic Design</h2>
+      <p>Creating visually compelling digital art that communicates and inspires.</p>
+    </div>
+    <div class="branch">
+      <h2>YouTube Content</h2>
+      <p>Producing clear, engaging tech tutorials on <strong>Technical Tube</strong>.</p>
+    </div>
+    <div class="branch">
+      <h2>AI & Emerging Tech</h2>
+      <p>Exploring AI tools and the latest technology shaping the digital world.</p>
+    </div>
+    <div class="branch">
+      <h2>Career Path</h2>
+      <p>A journey fueled by continuous learning, creativity, and empowering others.</p>
+    </div>
+    <div class="branch">
+      <h2>Hobbies & Interests</h2>
+      <p>Passionate about learning, sharing knowledge, and growing with the tech community.</p>
+    </div>
+  </div>
+
+</div>
+<footer style="margin-top: 40px; text-align: right;">
+    <a href="index.html" class="back-home-btn">← Back to Home</a>
+  </footer>
+
+</body>
+</html> 
